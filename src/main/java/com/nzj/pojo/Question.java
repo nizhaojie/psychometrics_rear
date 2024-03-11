@@ -34,9 +34,15 @@ public class Question {
     private String option4;//选项4
 
     @NotNull
-    private Integer rightOption;//正确选项,1对应选项1,以此类推
+    private Integer score1;//选项1分值
 
     @NotNull
-    private Integer score;//分值
+    private Integer score2;//选项2分值
+
+    @NotNull
+    private Integer score3;//选项3分值
+
+    @NotNull
+    private Integer score4;//选项4分值
 
 }
