@@ -15,17 +15,18 @@ public class RecordController {
     private RecordService recordService;
 
     @GetMapping
-    public Result<List<Record>> findByUser(Integer userId) {
+    public Result<List<Record>> findByUser(@RequestParam("userId") Integer userId) {
         List<Record> records = recordService.findByUser(userId);
         return Result.success(records);
     }
 
     @PostMapping
-    public Result add(Record record) {
+    public Result add(@RequestBody Record record) {
         recordService.add(record);
         return Result.success();
     }
 
+//    测试用
     @DeleteMapping
     public Result delete(Record record) {
         recordService.delete(record);

@@ -11,7 +11,7 @@ import java.util.List;
 @Mapper
 public interface RecordMapper {
     //根据用户id获取测评记录
-    @Select("select from record where user_id=#{userId}")
+    @Select("select * from record where user_id=#{userId}")
     List<Record> findByUser(Integer userId);
 
     //添加测评记录
