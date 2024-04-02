@@ -13,7 +13,7 @@ public interface QuestionMapper {
 
     //添加题目
     @Insert("insert into question(questionnaire_id,question,option1," +
-            "option2,option3,option4,score1,score2,score3,score4" +
+            "option2,option3,option4,score1,score2,score3,score4)" +
             " values(#{questionnaireId},#{question},#{option1}," +
             "#{option2},#{option3},#{option4},#{score1},#{score2},#{score3},#{score4})")
     void add(Question question);

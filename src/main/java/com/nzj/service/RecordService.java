@@ -13,4 +13,10 @@ public interface RecordService {
 
     //删除某人的测评记录(可能只用于测试)
     void delete(Record record);
+
+    List<Record> findByUserName(String username, String organization);
+
+    List<Record> findByQuestionnaireName(String questionnaireName, String organization);
+
+    List<Record> findByTime(String time, String organization);
 }

@@ -28,4 +28,22 @@ public class RecordServiceImpl implements RecordService {
     public void delete(Record record) {
         recordMapper.delete(record);
     }
+
+    @Override
+    public List<Record> findByUserName(String username, String organization) {
+        List<Record> records = recordMapper.findByUserName(username,organization);
+        return records;
+    }
+
+    @Override
+    public List<Record> findByQuestionnaireName(String questionnaireName, String organization) {
+        List<Record> records = recordMapper.findByQuestionnaireName(questionnaireName,organization);
+        return records;
+    }
+
+    @Override
+    public List<Record> findByTime(String time, String organization) {
+        List<Record> records = recordMapper.findByTime(time,organization);
+        return records;
+    }
 }

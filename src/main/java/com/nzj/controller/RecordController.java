@@ -32,4 +32,22 @@ public class RecordController {
         recordService.delete(record);
         return Result.success();
     }
+
+    @GetMapping("/username")
+    public Result<List<Record>> findByUserName(@RequestParam("username") String username, @RequestParam("organization") String organization) {
+        List<Record> records = recordService.findByUserName(username,organization);
+        return Result.success(records);
+    }
+
+    @GetMapping("/questionnaireName")
+    public Result<List<Record>> findByQuestionnaireName(@RequestParam("questionnaireName") String questionnaireName, @RequestParam("organization") String organization) {
+        List<Record> records = recordService.findByQuestionnaireName(questionnaireName,organization);
+        return Result.success(records);
+    }
+
+    @GetMapping("/time")
+    public Result<List<Record>> findByTime(@RequestParam("time") String time, @RequestParam("organization") String organization) {
+        List<Record> records = recordService.findByTime(time,organization);
+        return Result.success(records);
+    }
 }

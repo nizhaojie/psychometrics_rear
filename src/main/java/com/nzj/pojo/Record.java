@@ -20,4 +20,10 @@ public class Record {
 
     @NotEmpty
     private String report;
+
+    @NotEmpty
+    private String username;
+
+    @NotEmpty
+    private String organization;
 }
