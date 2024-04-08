@@ -2,9 +2,13 @@ package com.nzj.service;
 
 import com.nzj.pojo.User;
 
+import java.util.List;
+
 public interface UserService {
     //根据用户名查询用户
     User findByUserName(String username);
+
+    List<User> findByOrganization(String organization);
 
     //注册
     void register(String username, String password, String organization);

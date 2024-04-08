@@ -6,11 +6,16 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+import java.util.List;
+
 @Mapper
 public interface UserMapper {
     //根据用户名查询用户
     @Select("select * from user where username=#{username}")
     User findByUserName(String username);
+
+    @Select("select * from user where organization=#{organization} and administrator=0")
+    List<User> findByOrganization(String organization);
 
     //添加
     @Insert("insert into user(username,password,organization)" +

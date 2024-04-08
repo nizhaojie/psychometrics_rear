@@ -19,7 +19,7 @@ public class Guidance {
     private String receiver;//管理员用户名
 
     @NotEmpty
-    @Pattern(regexp = "^\\S{1,100}$")
+    @Pattern(regexp = "^\\S{1,1000}$")
     private String content;//内容
 
     @NotEmpty

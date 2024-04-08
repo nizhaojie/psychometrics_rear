@@ -11,7 +11,7 @@ import java.util.List;
 @Mapper
 public interface RecordMapper {
     //根据用户id获取测评记录
-    @Select("select * from record where user_id=#{userId}")
+    @Select("select * from record where user_id=#{userId} order by id desc")
     List<Record> findByUser(Integer userId);
 
     //添加测评记录
@@ -23,12 +23,12 @@ public interface RecordMapper {
     @Delete("delete from record where user_id=#{userId}")
     void delete(Record record);
 
-    @Select("select * from record where organization=#{organization} and username like concat('%',#{username},'%')")
+    @Select("select * from record where organization=#{organization} and username like concat('%',#{username},'%') order by id desc")
     List<Record> findByUserName(String username, String organization);
 
-    @Select("select * from record where organization=#{organization} and questionnaire_name like concat('%',#{questionnaireName},'%')")
+    @Select("select * from record where organization=#{organization} and questionnaire_name like concat('%',#{questionnaireName},'%') order by id desc")
     List<Record> findByQuestionnaireName(String questionnaireName, String organization);
 
-    @Select("select * from record where organization=#{organization} and time like concat('%',#{time},'%')")
+    @Select("select * from record where organization=#{organization} and time like concat('%',#{time},'%') order by id desc")
     List<Record> findByTime(String time, String organization);
 }

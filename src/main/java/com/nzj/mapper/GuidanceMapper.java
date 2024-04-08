@@ -8,11 +8,11 @@ import java.util.List;
 @Mapper
 public interface GuidanceMapper {
 //    根据管理员筛选
-    @Select("select * from guidance where giver=#{giver}")
+    @Select("select * from guidance where giver=#{giver} order by id desc")
     List<Guidance> findByGiver(String giver);
 
 //    根据用户筛选
-    @Select("select * from guidance where receiver=#{receiver}")
+    @Select("select * from guidance where receiver=#{receiver} order by id desc")
     List<Guidance> findByReceiver(String receiver);
 
 //    添加指导建议

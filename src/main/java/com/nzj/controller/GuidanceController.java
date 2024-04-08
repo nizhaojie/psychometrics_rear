@@ -26,13 +26,13 @@ public class GuidanceController {
         return Result.success(guidances);
     }
 
-    @PostMapping
+    @PostMapping("/add")
     public Result add(@RequestBody Guidance guidance) {
         guidanceService.add(guidance);
         return Result.success();
     }
 
-    @PutMapping
+    @GetMapping("/update")
     public Result update(@RequestParam("id") Integer id) {
         guidanceService.update(id);
         return Result.success();

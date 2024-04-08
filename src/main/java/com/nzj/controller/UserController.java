@@ -16,6 +16,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
@@ -78,6 +79,12 @@ public class UserController {
         String username = (String) map.get("username");
         User user = userService.findByUserName(username);
         return Result.success(user);
+    }
+
+    @GetMapping("/findByOrganization")
+    public Result<List<User>> findByOrganization(@RequestParam("organization") String organization) {
+        List<User> users = userService.findByOrganization(organization);
+        return Result.success(users);
     }
 
     @PutMapping("/update")

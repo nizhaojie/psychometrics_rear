@@ -8,6 +8,7 @@ import com.nzj.utils.ThreadLocalUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -18,6 +19,11 @@ public class UserServiceImpl implements UserService {
     public User findByUserName(String username) {
         User u = userMapper.findByUserName(username);
         return u;
+    }
+    @Override
+    public List<User> findByOrganization(String organization) {
+        List<User> users = userMapper.findByOrganization(organization);
+        return users;
     }
 
     @Override
