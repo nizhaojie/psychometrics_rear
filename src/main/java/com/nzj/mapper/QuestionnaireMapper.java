@@ -12,6 +12,9 @@ public interface QuestionnaireMapper {
     @Select("select * from questionnaire where organization=#{organization}")
     List<Questionnaire> findByOrganization(String organization);
 
+    @Select("select * from questionnaire where id=#{id}")
+    List<Questionnaire> findById(Integer id);
+
     //创建问卷
     @Insert("insert into questionnaire(name,description,organization,tag,lowerlimit1,upperlimit1,result1," +
             "lowerlimit2,upperlimit2,result2,lowerlimit3,upperlimit3,result3,lowerlimit4,upperlimit4,result4," +

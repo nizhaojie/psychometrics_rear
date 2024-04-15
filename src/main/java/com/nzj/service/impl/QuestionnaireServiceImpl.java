@@ -14,8 +14,14 @@ public class QuestionnaireServiceImpl implements QuestionnaireService {
     private QuestionnaireMapper questionnaireMapper;
 
     @Override
-    public List<Questionnaire> findByOrganization(String organization){
+    public List<Questionnaire> findByOrganization(String organization) {
         List<Questionnaire> questionnaires = questionnaireMapper.findByOrganization(organization);
+        return questionnaires;
+    }
+
+    @Override
+    public List<Questionnaire> findById(Integer id) {
+        List<Questionnaire> questionnaires = questionnaireMapper.findById(id);
         return questionnaires;
     }
 

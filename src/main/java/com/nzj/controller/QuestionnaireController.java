@@ -14,9 +14,15 @@ public class QuestionnaireController {
     @Autowired
     private QuestionnaireService questionnaireService;
 
-    @GetMapping
+    @GetMapping("/organization")
     public Result<List<Questionnaire>> findByOrganization(@RequestParam("organization") String organization) {
         List<Questionnaire> questionnaires = questionnaireService.findByOrganization(organization);
+        return Result.success(questionnaires);
+    }
+
+    @GetMapping("/id")
+    public Result<List<Questionnaire>> findById(@RequestParam("id") Integer id) {
+        List<Questionnaire> questionnaires = questionnaireService.findById(id);
         return Result.success(questionnaires);
     }
 

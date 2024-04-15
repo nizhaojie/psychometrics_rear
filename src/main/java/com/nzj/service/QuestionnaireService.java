@@ -8,6 +8,8 @@ public interface QuestionnaireService {
     //根据归属的组织名查询问卷
     List<Questionnaire> findByOrganization(String organization);
 
+    List<Questionnaire> findById(Integer id);
+
     //创建问卷
     void add(Questionnaire questionnaire);
 
