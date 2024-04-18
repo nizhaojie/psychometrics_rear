@@ -19,4 +19,14 @@ public interface RecordService {
     List<Record> findByQuestionnaireName(String questionnaireName, String organization);
 
     List<Record> findByTime(String time, String organization);
+
+    List<Record> findPass(String organization);
+
+    List<Record> findFail(String organization);
+
+    List<Record> findSeen(String organization);
+
+    List<Record> findNotSeen(String organization);
+
+    void update(Integer id);
 }

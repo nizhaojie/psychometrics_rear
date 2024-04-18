@@ -25,6 +25,9 @@ public class Questionnaire {
     private String tag;//问卷标签
 
     @NotNull
+    private Integer threshold;//阈值
+
+    @NotNull
     private Integer lowerlimit1;//区间下限1
     @NotNull
     private Integer upperlimit1;//区间上限1

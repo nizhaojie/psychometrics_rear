@@ -7,6 +7,9 @@ import lombok.Data;
 @Data
 public class Record {
     @NotNull
+    private Integer id;
+
+    @NotNull
     private Integer userId;
 
     @NotEmpty
@@ -26,4 +29,10 @@ public class Record {
 
     @NotEmpty
     private String organization;
+
+    @NotNull
+    private Integer state;//1及格,0不及格
+
+    @NotNull
+    private Integer seen;//1已读,0未读(只对管理员显示)
 }

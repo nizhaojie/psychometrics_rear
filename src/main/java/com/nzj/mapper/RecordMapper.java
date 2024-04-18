@@ -1,10 +1,7 @@
 package com.nzj.mapper;
 
 import com.nzj.pojo.Record;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -15,8 +12,8 @@ public interface RecordMapper {
     List<Record> findByUser(Integer userId);
 
     //添加测评记录
-    @Insert("insert into record(user_id,questionnaire_name,time,score,report,username,organization)" +
-            " values(#{userId},#{questionnaireName},#{time},#{score},#{report},#{username},#{organization})")
+    @Insert("insert into record(user_id,questionnaire_name,time,score,report,username,organization,state)" +
+            " values(#{userId},#{questionnaireName},#{time},#{score},#{report},#{username},#{organization},#{state})")
     void add(Record record);
 
     //删除某人的测评记录(可能只用于测试)
@@ -31,4 +28,19 @@ public interface RecordMapper {
 
     @Select("select * from record where organization=#{organization} and time like concat('%',#{time},'%') order by id desc")
     List<Record> findByTime(String time, String organization);
+
+    @Select("select * from record where organization=#{organization} and state=1 order by id desc")
+    List<Record> findPass(String organization);
+
+    @Select("select * from record where organization=#{organization} and state=0 order by id desc")
+    List<Record> findFail(String organization);
+
+    @Select("select * from record where organization=#{organization} and seen=1 order by id desc")
+    List<Record> findSeen(String organization);
+
+    @Select("select * from record where organization=#{organization} and seen=0 order by id desc")
+    List<Record> findNotSeen(String organization);
+
+    @Update("update record set seen=1 where id=#{id}")
+    void update(Integer id);
 }

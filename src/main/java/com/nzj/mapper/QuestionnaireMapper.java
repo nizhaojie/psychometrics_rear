@@ -16,16 +16,16 @@ public interface QuestionnaireMapper {
     List<Questionnaire> findById(Integer id);
 
     //创建问卷
-    @Insert("insert into questionnaire(name,description,organization,tag,lowerlimit1,upperlimit1,result1," +
+    @Insert("insert into questionnaire(name,description,organization,tag,threshold,lowerlimit1,upperlimit1,result1," +
             "lowerlimit2,upperlimit2,result2,lowerlimit3,upperlimit3,result3,lowerlimit4,upperlimit4,result4," +
-            "lowerlimit5,upperlimit5,result5) values(#{name},#{description},#{organization},#{tag},#{lowerlimit1}," +
+            "lowerlimit5,upperlimit5,result5) values(#{name},#{description},#{organization},#{tag},#{threshold},#{lowerlimit1}," +
             "#{upperlimit1},#{result1},#{lowerlimit2},#{upperlimit2},#{result2},#{lowerlimit3},#{upperlimit3}," +
             "#{result3},#{lowerlimit4},#{upperlimit4},#{result4},#{lowerlimit5},#{upperlimit5},#{result5})")
     void add(Questionnaire questionnaire);
 
     //更新问卷
     @Update("update questionnaire set name=#{name},description=#{description}," +
-            "organization=#{organization},tag=#{tag},lowerlimit1=#{lowerlimit1},upperlimit1=#{upperlimit1},result1=#{result1}," +
+            "organization=#{organization},tag=#{tag},threshold=#{threshold},lowerlimit1=#{lowerlimit1},upperlimit1=#{upperlimit1},result1=#{result1}," +
             "lowerlimit2=#{lowerlimit2},upperlimit2=#{upperlimit2},result2=#{result2},lowerlimit3=#{lowerlimit3}," +
             "upperlimit3=#{upperlimit3},result3=#{result3},lowerlimit4=#{lowerlimit4},upperlimit4=#{upperlimit4}," +
             "result4=#{result4},lowerlimit5=#{lowerlimit5},upperlimit5=#{upperlimit5},result5=#{result5} where id=#{id}")

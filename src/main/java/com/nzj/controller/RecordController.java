@@ -50,4 +50,34 @@ public class RecordController {
         List<Record> records = recordService.findByTime(time,organization);
         return Result.success(records);
     }
+
+    @GetMapping("/pass")
+    public Result<List<Record>> findPass(@RequestParam("organization") String organization) {
+        List<Record> records = recordService.findPass(organization);
+        return Result.success(records);
+    }
+
+    @GetMapping("/fail")
+    public Result<List<Record>> findFail(@RequestParam("organization") String organization) {
+        List<Record> records = recordService.findFail(organization);
+        return Result.success(records);
+    }
+
+    @GetMapping("/seen")
+    public Result<List<Record>> findSeen(@RequestParam("organization") String organization) {
+        List<Record> records = recordService.findSeen(organization);
+        return Result.success(records);
+    }
+
+    @GetMapping("/notSeen")
+    public Result<List<Record>> findNotSeen(@RequestParam("organization") String organization) {
+        List<Record> records = recordService.findNotSeen(organization);
+        return Result.success(records);
+    }
+
+    @GetMapping("/update")
+    public Result update(@RequestParam("id") Integer id) {
+        recordService.update(id);
+        return Result.success();
+    }
 }

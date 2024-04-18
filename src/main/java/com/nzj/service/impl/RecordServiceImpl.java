@@ -46,4 +46,33 @@ public class RecordServiceImpl implements RecordService {
         List<Record> records = recordMapper.findByTime(time,organization);
         return records;
     }
+
+    @Override
+    public List<Record> findPass(String organization) {
+        List<Record> records = recordMapper.findPass(organization);
+        return records;
+    }
+
+    @Override
+    public List<Record> findFail(String organization) {
+        List<Record> records = recordMapper.findFail(organization);
+        return records;
+    }
+
+    @Override
+    public List<Record> findSeen(String organization) {
+        List<Record> records = recordMapper.findSeen(organization);
+        return records;
+    }
+
+    @Override
+    public List<Record> findNotSeen(String organization) {
+        List<Record> records = recordMapper.findNotSeen(organization);
+        return records;
+    }
+
+    @Override
+    public void update(Integer id) {
+        recordMapper.update(id);
+    }
 }
