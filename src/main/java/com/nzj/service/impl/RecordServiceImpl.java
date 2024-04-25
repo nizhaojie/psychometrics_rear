@@ -20,6 +20,12 @@ public class RecordServiceImpl implements RecordService {
     }
 
     @Override
+    public List<Record> findByOrganization(String organization) {
+        List<Record> records = recordMapper.findByOrganization(organization);
+        return records;
+    }
+
+    @Override
     public void add(Record record) {
         recordMapper.add(record);
     }

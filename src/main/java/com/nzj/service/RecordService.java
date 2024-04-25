@@ -8,6 +8,8 @@ public interface RecordService {
     //根据用户id获取测评记录
     List<Record> findByUser(Integer userId);
 
+    List<Record> findByOrganization(String organization);
+
     //添加测评记录
     void add(Record record);
 

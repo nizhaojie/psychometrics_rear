@@ -11,6 +11,9 @@ public interface RecordMapper {
     @Select("select * from record where user_id=#{userId} order by id desc")
     List<Record> findByUser(Integer userId);
 
+    @Select("select * from record where organization=#{organization} order by id desc limit 100")
+    List<Record> findByOrganization(String organization);
+
     //添加测评记录
     @Insert("insert into record(user_id,questionnaire_name,time,score,report,username,organization,state)" +
             " values(#{userId},#{questionnaireName},#{time},#{score},#{report},#{username},#{organization},#{state})")

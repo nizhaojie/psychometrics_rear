@@ -14,9 +14,15 @@ public class RecordController {
     @Autowired
     private RecordService recordService;
 
-    @GetMapping
+    @GetMapping("/userId")
     public Result<List<Record>> findByUser(@RequestParam("userId") Integer userId) {
         List<Record> records = recordService.findByUser(userId);
+        return Result.success(records);
+    }
+
+    @GetMapping("/organization")
+    public Result<List<Record>> findByOrganization(@RequestParam("organization") String organization) {
+        List<Record> records = recordService.findByOrganization(organization);
         return Result.success(records);
     }
 
